@@ -1,0 +1,417 @@
+[gd_scene load_steps=2 format=3 uid="uid://character_status"]
+
+[ext_resource type="Script" path="res://scripts/ui/CharacterStatus.gd" id="1"]
+
+[node name="CharacterStatus" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.176, 0.203, 0.212, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 44.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleBar" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitleBar"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="VBoxContainer/TitleBar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "←"
+
+[node name="Title" type="Label" parent="VBoxContainer/TitleBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "🧙‍♂️ 角色状态"
+horizontal_alignment = 1
+
+[node name="EditButton" type="Button" parent="VBoxContainer/TitleBar/HBoxContainer"]
+custom_minimum_size = Vector2(80, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "编辑"
+
+[node name="CharacterInfo" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CharacterInfo"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Avatar" type="TextureRect" parent="VBoxContainer/CharacterInfo/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CharacterInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+theme_override_constants/separation = 8
+
+[node name="Name" type="Label" parent="VBoxContainer/CharacterInfo/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "修仙者"
+
+[node name="LevelClass" type="Label" parent="VBoxContainer/CharacterInfo/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.992, 0.851, 0.204, 1)
+theme_override_font_sizes/font_size = 18
+text = "Lv.15 战士"
+
+[node name="ExperienceBar" type="ProgressBar" parent="VBoxContainer/CharacterInfo/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+value = 46.8
+show_percentage = false
+
+[node name="ExperienceLabel" type="Label" parent="VBoxContainer/CharacterInfo/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 14
+text = "经验 2340/5000"
+
+[node name="AttributesPanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/AttributesPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "─── 基础属性 ───"
+horizontal_alignment = 1
+
+[node name="HPRow" type="HBoxContainer" parent="VBoxContainer/AttributesPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/HPRow"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "❤️"
+
+[node name="Label" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/HPRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 16
+text = "HP:"
+
+[node name="Value" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/HPRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "150/150"
+
+[node name="MPRow" type="HBoxContainer" parent="VBoxContainer/AttributesPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/MPRow"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "💙"
+
+[node name="Label" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/MPRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 16
+text = "MP:"
+
+[node name="Value" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/MPRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "80/80"
+
+[node name="AttackRow" type="HBoxContainer" parent="VBoxContainer/AttributesPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/AttackRow"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "⚔️"
+
+[node name="Label" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/AttackRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 16
+text = "攻击:"
+
+[node name="Value" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/AttackRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "45"
+
+[node name="DefenseRow" type="HBoxContainer" parent="VBoxContainer/AttributesPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/DefenseRow"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "🛡️"
+
+[node name="Label" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/DefenseRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 16
+text = "防御:"
+
+[node name="Value" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/DefenseRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "30"
+
+[node name="SpeedRow" type="HBoxContainer" parent="VBoxContainer/AttributesPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/SpeedRow"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "⚡"
+
+[node name="Label" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/SpeedRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 16
+text = "速度:"
+
+[node name="Value" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/SpeedRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "25"
+
+[node name="CritRow" type="HBoxContainer" parent="VBoxContainer/AttributesPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/CritRow"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "🎯"
+
+[node name="Label" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/CritRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_font_sizes/font_size = 16
+text = "暴击:"
+
+[node name="Value" type="Label" parent="VBoxContainer/AttributesPanel/VBoxContainer/CritRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "15%"
+
+[node name="EquipmentPanel" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/EquipmentPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="VBoxContainer/EquipmentPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "─── 装备槽位 ───"
+horizontal_alignment = 1
+
+[node name="EquipmentGrid" type="GridContainer" parent="VBoxContainer/EquipmentPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="WeaponSlot" type="Button" parent="VBoxContainer/EquipmentPanel/VBoxContainer/EquipmentGrid"]
+custom_minimum_size = Vector2(400, 48)
+layout_mode = 2
+text = "⚔️ 铁剑  攻击+15"
+
+[node name="OffhandSlot" type="Button" parent="VBoxContainer/EquipmentPanel/VBoxContainer/EquipmentGrid"]
+custom_minimum_size = Vector2(400, 48)
+layout_mode = 2
+text = "🛡️ 铁盾  防御+10"
+
+[node name="ArmorSlot" type="Button" parent="VBoxContainer/EquipmentPanel/VBoxContainer/EquipmentGrid"]
+custom_minimum_size = Vector2(400, 48)
+layout_mode = 2
+text = "👕 铁甲  防御+20"
+
+[node name="HelmetSlot" type="Button" parent="VBoxContainer/EquipmentPanel/VBoxContainer/EquipmentGrid"]
+custom_minimum_size = Vector2(400, 48)
+layout_mode = 2
+text = "⛑️ 铁盔  防御+5"
+
+[node name="Accessory1Slot" type="Button" parent="VBoxContainer/EquipmentPanel/VBoxContainer/EquipmentGrid"]
+custom_minimum_size = Vector2(400, 48)
+layout_mode = 2
+text = "💍 戒指  暴击+5%"
+
+[node name="Accessory2Slot" type="Button" parent="VBoxContainer/EquipmentPanel/VBoxContainer/EquipmentGrid"]
+custom_minimum_size = Vector2(400, 48)
+layout_mode = 2
+text = "[ + ]  点击装备饰品"
+
+[node name="BottomBar" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TabContainer" type="HBoxContainer" parent="BottomBar"]
+layout_mode = 2
+alignment = 1
+
+[node name="BattleTab" type="VBoxContainer" parent="BottomBar/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+theme_override_constants/separation = 4
+
+[node name="Icon" type="Label" parent="BottomBar/TabContainer/BattleTab"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "⚔️"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="BottomBar/TabContainer/BattleTab"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 12
+text = "战斗"
+horizontal_alignment = 1
+
+[node name="InventoryTab" type="VBoxContainer" parent="BottomBar/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+theme_override_constants/separation = 4
+
+[node name="Icon" type="Label" parent="BottomBar/TabContainer/InventoryTab"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "🎒"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="BottomBar/TabContainer/InventoryTab"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 12
+text = "物品"
+horizontal_alignment = 1
+
+[node name="SkillsTab" type="VBoxContainer" parent="BottomBar/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+theme_override_constants/separation = 4
+
+[node name="Icon" type="Label" parent="BottomBar/TabContainer/SkillsTab"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "⚡"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="BottomBar/TabContainer/SkillsTab"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 12
+text = "技能"
+horizontal_alignment = 1
+
+[node name="StatusTab" type="VBoxContainer" parent="BottomBar/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+theme_override_constants/separation = 4
+
+[node name="Icon" type="Label" parent="BottomBar/TabContainer/StatusTab"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.424, 0.361, 0.906, 1)
+theme_override_font_sizes/font_size = 24
+text = "👤"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="BottomBar/TabContainer/StatusTab"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.424, 0.361, 0.906, 1)
+theme_override_font_sizes/font_size = 12
+text = "状态"
+horizontal_alignment = 1
+
+[node name="SafeAreaTop" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
+
+[node name="SafeAreaBottom" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0

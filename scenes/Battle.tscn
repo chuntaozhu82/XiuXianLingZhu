@@ -1,0 +1,359 @@
+[gd_scene load_steps=2 format=3 uid="uid://battle"]
+
+[ext_resource type="Script" path="res://scripts/ui/Battle.gd" id="1"]
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 6
+
+[node name="TopStatusBar" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 44.0
+offset_bottom = 144.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopStatusBar"]
+layout_mode = 2
+alignment = 1
+
+[node name="SettingsButton" type="Button" parent="TopStatusBar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "⚙️"
+
+[node name="TurnInfo" type="Label" parent="TopStatusBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "回合 3/10"
+horizontal_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="TopStatusBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "1:23"
+
+[node name="SpeedButton" type="Button" parent="TopStatusBar/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "1x"
+
+[node name="EnemyArea" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 144.0
+offset_bottom = 340.0
+grow_horizontal = 2
+
+[node name="EnemyInfoPanel" type="PanelContainer" parent="EnemyArea"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EnemyArea/EnemyInfoPanel"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 8
+
+[node name="EnemyName" type="Label" parent="EnemyArea/EnemyInfoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "🐉 Boss巨龙"
+horizontal_alignment = 1
+
+[node name="HPBar" type="ProgressBar" parent="EnemyArea/EnemyInfoPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 80.0
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="EnemyArea/EnemyInfoPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "HP: 8000/10000"
+horizontal_alignment = 1
+
+[node name="BattleScene" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 340.0
+offset_bottom = 950.0
+grow_horizontal = 2
+
+[node name="EnemySprite" type="TextureRect" parent="BattleScene"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PlayerArea" type="HBoxContainer" parent="BattleScene"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+theme_override_constants/separation = 32
+
+[node name="Character1" type="VBoxContainer" parent="BattleScene/PlayerArea"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Sprite" type="TextureRect" parent="BattleScene/PlayerArea/Character1"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HPBar" type="ProgressBar" parent="BattleScene/PlayerArea/Character1"]
+custom_minimum_size = Vector2(80, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 100.0
+show_percentage = false
+
+[node name="Character2" type="VBoxContainer" parent="BattleScene/PlayerArea"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Sprite" type="TextureRect" parent="BattleScene/PlayerArea/Character2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HPBar" type="ProgressBar" parent="BattleScene/PlayerArea/Character2"]
+custom_minimum_size = Vector2(80, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 85.0
+show_percentage = false
+
+[node name="Character3" type="VBoxContainer" parent="BattleScene/PlayerArea"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Sprite" type="TextureRect" parent="BattleScene/PlayerArea/Character3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HPBar" type="ProgressBar" parent="BattleScene/PlayerArea/Character3"]
+custom_minimum_size = Vector2(80, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 92.0
+show_percentage = false
+
+[node name="SkillArea" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -340.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SkillArea"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SkillRow1" type="GridContainer" parent="SkillArea/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="AttackButton" type="Button" parent="SkillArea/VBoxContainer/SkillRow1"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "⚔️ 普通攻击"
+
+[node name="FireballButton" type="Button" parent="SkillArea/VBoxContainer/SkillRow1"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "🔥 火球术
+MP: 15"
+
+[node name="HealButton" type="Button" parent="SkillArea/VBoxContainer/SkillRow1"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "💚 治疗
+MP: 20"
+
+[node name="SkillRow2" type="GridContainer" parent="SkillArea/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="DefendButton" type="Button" parent="SkillArea/VBoxContainer/SkillRow2"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "🛡️ 防御"
+
+[node name="ItemButton" type="Button" parent="SkillArea/VBoxContainer/SkillRow2"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "🧪 道具"
+
+[node name="FleeButton" type="Button" parent="SkillArea/VBoxContainer/SkillRow2"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "🏃 逃跑"
+
+[node name="BottomBar" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TabContainer" type="HBoxContainer" parent="BottomBar"]
+layout_mode = 2
+alignment = 1
+
+[node name="BattleTab" type="VBoxContainer" parent="BottomBar/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+theme_override_constants/separation = 4
+
+[node name="Icon" type="Label" parent="BottomBar/TabContainer/BattleTab"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.424, 0.361, 0.906, 1)
+theme_override_font_sizes/font_size = 24
+text = "⚔️"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="BottomBar/TabContainer/BattleTab"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.424, 0.361, 0.906, 1)
+theme_override_font_sizes/font_size = 12
+text = "战斗"
+horizontal_alignment = 1
+
+[node name="InventoryTab" type="VBoxContainer" parent="BottomBar/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+theme_override_constants/separation = 4
+
+[node name="Icon" type="Label" parent="BottomBar/TabContainer/InventoryTab"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "🎒"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="BottomBar/TabContainer/InventoryTab"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 12
+text = "物品"
+horizontal_alignment = 1
+
+[node name="SkillsTab" type="VBoxContainer" parent="BottomBar/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+theme_override_constants/separation = 4
+
+[node name="Icon" type="Label" parent="BottomBar/TabContainer/SkillsTab"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "⚡"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="BottomBar/TabContainer/SkillsTab"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 12
+text = "技能"
+horizontal_alignment = 1
+
+[node name="StatusTab" type="VBoxContainer" parent="BottomBar/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+theme_override_constants/separation = 4
+
+[node name="Icon" type="Label" parent="BottomBar/TabContainer/StatusTab"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "👤"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="BottomBar/TabContainer/StatusTab"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 12
+text = "状态"
+horizontal_alignment = 1
+
+[node name="SafeAreaTop" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
